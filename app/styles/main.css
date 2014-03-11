@@ -94,14 +94,15 @@ footer {
     padding-left: 20px;
 }
 
-.region-select {
-    width: 350px;
-}
 .form-submit {
     padding-top: 20px;
 }
-.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+.form-field .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
     height: auto;
+    width: auto !important;
+}
+.form-field .chosen-container-multi {
+    width: 100% !important;
 }
 
 .tab-content .tab-pane {
@@ -112,4 +113,14 @@ footer {
 
 .padded-link {
     padding-left: 20px;
+}
+
+.search-help a {
+    color: #737373;
+    border-bottom: 1px dashed #737373;
+}
+
+.search-help a:hover {
+    text-decoration: none;
+    border-bottom-style: solid;
 }
