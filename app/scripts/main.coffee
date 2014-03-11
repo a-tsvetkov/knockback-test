@@ -34,10 +34,10 @@ require.config
 
 require [
   'jquery'
-  'backbone'
-  'knockback'
-  'bootstrap',
+  'application'
+  'bootstrap'
   'chosen'
-], ($, Backbone, kb) ->
+], ($, Application) ->
     $('.chosen-select').chosen()
-    Backbone.history.start()
+    app = new Application()
+    app.start()
