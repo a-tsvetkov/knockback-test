@@ -172,7 +172,8 @@ module.exports = function (grunt) {
                         'backbone': '../../app/lib/backbone/backbone',
                         'knockout': '../../app/lib/knockout/knockout',
                         'knockback': '../../app/lib/knockback/knockback',
-                        'bootstrap': '../../app/lib/bootstrap/dist/js/bootstrap'
+                        'bootstrap': '../../app/lib/bootstrap/dist/js/bootstrap',
+                        'chosen': '../../app/lib/chosen-build/chosen.jquery'
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30

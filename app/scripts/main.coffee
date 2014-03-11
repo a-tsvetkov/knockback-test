@@ -5,6 +5,8 @@ require.config
   shim:
     bootstrap:
         deps: ['jquery']
+    chosen:
+        deps: ['jquery']
     underscore:
       exports: '_'
     backbone:
@@ -24,14 +26,18 @@ require.config
   paths:
     jquery: '../lib/jquery/jquery'
     backbone: '../lib/backbone/backbone'
-    underscore: '../lib/underscore/underscoare'
+    underscore: '../lib/underscore/underscore'
     knockout: '../lib/knockout/knockout'
     knockback: '../lib/knockback/knockback'
     bootstrap: '../lib/bootstrap/dist/js/bootstrap'
+    chosen: '../lib/chosen-build/chosen.jquery'
 
 require [
+  'jquery'
   'backbone'
   'knockback'
-  'bootstrap'
-], (Backbone, kb) ->
-  Backbone.history.start()
+  'bootstrap',
+  'chosen'
+], ($, Backbone, kb) ->
+    $('.chosen-select').chosen()
+    Backbone.history.start()

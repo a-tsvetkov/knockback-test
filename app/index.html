@@ -11,7 +11,8 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/lib/chosen-build/chosen.css">
         <link rel="stylesheet" href="/styles/main.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
@@ -24,11 +25,11 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="container">
+        <div id="wrap" class="container">
 
             <div class="row">
 
-                <div class="col-sm-2">
+                <div id="menu" class="col-sm-2">
                     <nav class="nav-sidebar">
                         <ul class="nav">
                             <li class="active"><a href="/filter/simple">Настройки</a></li>
@@ -45,7 +46,90 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="simple">
-                            Simple
+                            <form role="form">
+                                <div class="form-field">
+                                    <div class="form-label">
+                                        Я хочу получать вакансии для позиции:
+                                    </div>
+                                    <div class="form-input">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                Программист
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                Программист
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                Программист
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                Программист
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">
+                                                Программист
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <a class="padded-link" href="#">
+                                                Выбрать другие
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="form-label">
+                                        С уровнем заработной платы:
+                                    </div>
+                                    <div class="form-input form-inline">
+                                        <label class="sr-only" for="salary-from">С уровнем заработной платы:</label>
+                                        <span>От</span>
+                                        <input type="text" id="salary-from" class="form-control" >
+                                        <span>руб.</span>
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <div class="form-label">
+                                        Мой регион:
+                                    </div>
+                                    <div class="form-input">
+                                        <label class="sr-only" for="region">Мой регион:</label>
+                                        <select multiple id="region" class="form-control chosen-select" data-placeholder="Введите название региона">
+                                            <optgroup label="1">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </optgroup>
+                                            <optgroup label="2">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-submit">
+                                    <p>
+                                        <button type="submit" class="btn btn-primary btn-lg">Сохранить настройки</button>
+                                    </p>
+                                </div>
+                            </form>
                         </div>
                         <div class="tab-pane" id="extended">
                             Extended
@@ -58,21 +142,18 @@
         </div>
         <!-- /.container -->
 
-        <div class="container">
-
             <hr>
-
             <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>
-                            Copyright &copy; Company 2013
-                        </p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>
+                                Copyright &copy; Company 2013
+                            </p>
+                        </div>
                     </div>
                 </div>
             </footer>
-
-        </div>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
