@@ -27,10 +27,10 @@ require.config
     jquery: '../lib/jquery/jquery'
     backbone: '../lib/backbone/backbone'
     underscore: '../lib/underscore/underscore'
-    knockout: '../lib/knockout/knockout'
+    knockout: '../lib/knockout/build/output/knockout-latest.debug'
     knockback: '../lib/knockback/knockback'
     bootstrap: '../lib/bootstrap/dist/js/bootstrap'
-    chosen: '../lib/chosen-build/chosen.jquery'
+    chosen: '../lib/chosen/public/chosen.jquery'
 
 require [
   'jquery'
