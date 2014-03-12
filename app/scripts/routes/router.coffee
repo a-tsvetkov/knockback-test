@@ -4,11 +4,20 @@ define [
 ], (Backbone, kb) ->
   class Router extends Backbone.Router
 
-    @routes:
+    routes:
         'filter': 'filterSimple'
         'filter/extended': 'filterExtended'
         'vacancies': 'vacancies'
         'about': 'about'
 
-    @execute: (callback, args)->
-        alert("Executed route!")
+    about: ->
+        console.log("Executed about route!")
+
+    filterSimple: ->
+        console.log("Executed filter route!")
+
+    filterExtended: ->
+        console.log("Executed filter extended route!")
+
+    vacancies: ->
+        console.log("Executed vacancies route!")

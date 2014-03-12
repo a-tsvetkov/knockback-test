@@ -14,7 +14,8 @@ define [
             Backbone.history.start({pushState: true})
 
         interceptLinks: ->
-            self = @
-            $('a.inner').click () ->
-                self.router.navigate($(@).attr('href'))
-                return false
+            $('a.inner').click (e) =>
+                e.preventDefault()
+                path = $(e.currentTarget).attr('href')
+                path = path[1..] if path[0] == '/'
+                @router.navigate(path, { trigger: true })
