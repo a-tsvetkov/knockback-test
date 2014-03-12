@@ -9,7 +9,7 @@ define [
         constructor: (@element) ->
 
         start: () ->
-            @router = new Router
+            @router = new Router @
             @interceptLinks()
             Backbone.history.start({pushState: true})
 
@@ -19,3 +19,8 @@ define [
                 path = $(e.currentTarget).attr('href')
                 path = path[1..] if path[0] == '/'
                 @router.navigate(path, { trigger: true })
+
+        renderView: (viewElement) ->
+            ko.releaseNode(@element)
+            return if @element contains viewElement
+            element.append(viewElement)

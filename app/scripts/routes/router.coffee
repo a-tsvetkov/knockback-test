@@ -4,6 +4,9 @@ define [
 ], (Backbone, kb) ->
   class Router extends Backbone.Router
 
+    constructor: (@app, options) ->
+        super options
+
     routes:
         'filter': 'filterSimple'
         'filter/extended': 'filterExtended'
