@@ -52,11 +52,13 @@ footer {
     -moz-border-radius: 4px 0 0 4px;
     border-radius: 4px 0 0 4px;
 }
-.nav-sidebar .active a {
+.nav-sidebar .active a,
+.nav-sidebar .active a:focus {
     cursor: default;
     background-color: #428bca;
     color: #fff;
     text-shadow: 1px 1px 1px #666;
+    border: none;
 }
 .nav-sidebar .active a:hover {
     background-color: #428bca;
@@ -68,7 +70,6 @@ footer {
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
 }
-
 /* Right-aligned sidebar */
 .nav-sidebar.pull-right {
     border-right: 0;
@@ -99,7 +100,7 @@ footer {
 }
 .form-field .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
     height: auto;
-    width: auto !important;
+    width: 100% !important;
 }
 .form-field .chosen-container-multi {
     width: 100% !important;

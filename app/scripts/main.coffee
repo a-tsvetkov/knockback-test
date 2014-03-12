@@ -24,7 +24,7 @@ require.config
         ]
         exports: 'kb'
   paths:
-    jquery: '../lib/jquery/jquery'
+    jquery: '../lib/jquery/dist/jquery'
     backbone: '../lib/backbone/backbone'
     underscore: '../lib/underscore/underscore'
     knockout: '../lib/knockout/build/output/knockout-latest.debug'
@@ -34,10 +34,11 @@ require.config
 
 require [
   'jquery'
+  'knockback'
   'application'
   'bootstrap'
   'chosen'
-], ($, Application) ->
-    $('.chosen-select').chosen()
-    app = new Application()
+], ($, kb, Application) ->
+    app = new Application $('#content').first()
+    kb.applyBindings(app, $('#wrap').first().get(0))
     app.start()

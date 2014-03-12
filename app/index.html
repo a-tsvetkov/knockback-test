@@ -31,291 +31,16 @@
 
                 <div id="menu" class="col-sm-2">
                     <nav class="nav-sidebar">
-                        <ul class="nav">
-                            <li class="active"><a class="inner" href="/filter">Настройки</a></li>
-                            <li><a class="inner" href="/vacancies">Вакансии</a></li>
-                            <li><a class="inner" href="/about">О приложении</a></li>
+                        <ul class="nav" data-bind="foreach: menuItems">
+                            <li data-bind="css: {active: $parent.currentPath() == href}">
+                                <a class="inner" data-bind="attr: { href: href }, text: name"></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
 
                 <div id="content" class="col-md-10">
-                    <ul class="nav nav-tabs nav-justified">
-                          <li class="active"><a href="#simple" data-toggle="tab">Простой поиск</a></li>
-                          <li><a href="#extended" data-toggle="tab">Расширенный</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="simple">
-                            <form role="form">
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        Я хочу получать вакансии для позиции:
-                                    </div>
-                                    <div class="form-input">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Программист
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Менеджер по продажам
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Бухгалтер
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Менеджер по персоналу
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Водитель
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <a class="padded-link" href="#">
-                                                Выбрать другие
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        С уровнем заработной платы:
-                                    </div>
-                                    <div class="form-input form-inline">
-                                        <label class="sr-only" for="salary-from">С уровнем заработной платы:</label>
-                                        <span>От</span>
-                                        <input type="text" id="salary-from" class="form-control" >
-                                        <span>руб.</span>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        Мой регион:
-                                    </div>
-                                    <div class="form-input">
-                                        <div class="row">
-                                            <div class="col-xs-5">
-                                                <label class="sr-only" for="region">Регион:</label>
-                                                <select multiple id="region" class="form-control chosen-select" data-placeholder="Введите название региона">
-                                                    <optgroup label="Россия">
-                                                        <option>Москва</option>
-                                                        <option>Пенза</option>
-                                                        <option>Самара</option>
-                                                        <option>Нижний Новгород</option>
-                                                        <option>Санкт-Петербург</option>
-                                                    </optgroup>
-                                                    <optgroup label="Украина">
-                                                        <option>Киев</option>
-                                                        <option>Одесса</option>
-                                                        <option>Львов</option>
-                                                        <option>Харьков</option>
-                                                        <option>Севастополь</option>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-submit">
-                                    <p>
-                                        <button type="submit" class="btn btn-primary btn-lg">Сохранить настройки</button>
-                                    </p>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="tab-pane" id="extended">
-                            <form role="form">
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        Я хочу получать вакансии для позиции:
-                                    </div>
-                                    <div class="form-input">
-                                        <input type="text" class="form-control" id="search">
-                                        <p class="help-block search-help">Например, <a href="#">бухгалтер</a></p>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        Профессиональная область:
-                                    </div>
-                                    <div class="form-input">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Все профессиональные области
-                                            </label>
-                                        </div>
-                                        <hr>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Бухгалтерия, управленческий учет, финансы предприятия
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Информационные технологии, интернет, телеком
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Маркетинг, реклама, PR
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Продажи
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Управление персоналом, тренинги
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <a class="padded-link" href="#">
-                                                Показать весь список областей
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        С уровнем заработной платы:
-                                    </div>
-                                    <div class="form-input">
-                                        <div class="form-inline">
-                                            <label class="sr-only" for="salary-from">С уровнем заработной платы:</label>
-                                            <span>От</span>
-                                            <input type="text" id="salary-from" class="form-control" >
-                                            <select id="currency" name="currency" class="form-control">
-                                                <option>руб.</option>
-                                                <option>USD</option>
-                                                <option>EUR</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        Регион:
-                                    </div>
-                                    <div class="form-input">
-                                        <div class="row">
-                                            <div class="col-xs-5">
-                                                <label class="sr-only" for="region">Регион:</label>
-                                                <select multiple id="region" class="form-control chosen-select" data-placeholder="Введите название региона">
-                                                    <optgroup label="Россия">
-                                                        <option>Москва</option>
-                                                        <option>Пенза</option>
-                                                        <option>Самара</option>
-                                                        <option>Нижний Новгород</option>
-                                                        <option>Санкт-Петербург</option>
-                                                    </optgroup>
-                                                    <optgroup label="Украина">
-                                                        <option>Киев</option>
-                                                        <option>Одесса</option>
-                                                        <option>Львов</option>
-                                                        <option>Харьков</option>
-                                                        <option>Севастополь</option>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        Тип занятости:
-                                    </div>
-                                    <div class="form-input">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Полная занятость
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Частичная занятость
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Проектная/Временная работа
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Волонтерство
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Стажировка
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-field">
-                                    <div class="form-label">
-                                        График работы:
-                                    </div>
-                                    <div class="form-input">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Полный день
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Сменный график
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Гибкий график
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                Удалённая работа
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-submit">
-                                    <p>
-                                        <button type="submit" class="btn btn-primary btn-lg">Сохранить настройки</button>
-                                    </p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>
@@ -350,5 +75,321 @@
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="/lib/requirejs/require.js"></script>
         <!-- endbuild -->
+
+        <script type="text/x-jquery-tpl" id="filter_simple.html">
+            <div class="content-wrap">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#simple" data-toggle="tab">Простой поиск</a></li>
+                    <li><a href="#extended" data-toggle="tab">Расширенный</a></li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="simple">
+                        <form role="form">
+
+                            <div class="form-field">
+                                <div class="form-label">
+                                    Я хочу получать вакансии для позиции:
+                                </div>
+                                <div class="form-input">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Программист
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Менеджер по продажам
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Бухгалтер
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Менеджер по персоналу
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Водитель
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <a class="padded-link" href="#">
+                                            Выбрать другие
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <div class="form-label">
+                                    С уровнем заработной платы:
+                                </div>
+                                <div class="form-input form-inline">
+                                    <label class="sr-only" for="salary-from">С уровнем заработной платы:</label>
+                                    <span>От</span>
+                                    <input type="text" id="salary-from" class="form-control" >
+                                    <span>руб.</span>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <div class="form-label">
+                                    Мой регион:
+                                </div>
+                                <div class="form-input">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <label class="sr-only" for="region">Регион:</label>
+                                            <select multiple id="region" class="form-control chosen-select" data-placeholder="Введите название региона">
+                                                <optgroup label="Россия">
+                                                    <option>Москва</option>
+                                                    <option>Пенза</option>
+                                                    <option>Самара</option>
+                                                    <option>Нижний Новгород</option>
+                                                    <option>Санкт-Петербург</option>
+                                                </optgroup>
+                                                <optgroup label="Украина">
+                                                    <option>Киев</option>
+                                                    <option>Одесса</option>
+                                                    <option>Львов</option>
+                                                    <option>Харьков</option>
+                                                    <option>Севастополь</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-submit">
+                                <p>
+                                    <button type="submit" class="btn btn-primary btn-lg">Сохранить настройки</button>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane" id="extended">
+
+                        <form role="form">
+                            <div class="form-field">
+                                <div class="form-label">
+                                    Я хочу получать вакансии для позиции:
+                                </div>
+                                <div class="form-input">
+                                    <input type="text" class="form-control" id="form__text" data-bind="value: text, valueUpdate: 'keyup'">
+                                    <p class="help-block search-help">Например, <a href="#">бухгалтер</a></p>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <div class="form-label">
+                                    Профессиональная область:
+                                </div>
+                                <div class="form-input">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Все профессиональные области
+                                        </label>
+                                    </div>
+                                    <hr>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Бухгалтерия, управленческий учет, финансы предприятия
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Информационные технологии, интернет, телеком
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Маркетинг, реклама, PR
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Продажи
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Управление персоналом, тренинги
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <a class="padded-link" href="#">
+                                            Показать весь список областей
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <div class="form-label">
+                                    С уровнем заработной платы:
+                                </div>
+                                <div class="form-input">
+                                    <div class="form-inline">
+                                        <label class="sr-only" for="salary-from">С уровнем заработной платы:</label>
+                                        <span>От</span>
+                                        <input type="text" id="salary-from" class="form-control" >
+                                        <select id="currency" name="currency" class="form-control">
+                                            <option>руб.</option>
+                                            <option>USD</option>
+                                            <option>EUR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <div class="form-label">
+                                    Регион:
+                                </div>
+                                <div class="form-input">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <label class="sr-only" for="region">Регион:</label>
+                                            <select multiple id="region" class="form-control chosen-select" data-placeholder="Введите название региона">
+                                                <optgroup label="Россия">
+                                                    <option>Москва</option>
+                                                    <option>Пенза</option>
+                                                    <option>Самара</option>
+                                                    <option>Нижний Новгород</option>
+                                                    <option>Санкт-Петербург</option>
+                                                </optgroup>
+                                                <optgroup label="Украина">
+                                                    <option>Киев</option>
+                                                    <option>Одесса</option>
+                                                    <option>Львов</option>
+                                                    <option>Харьков</option>
+                                                    <option>Севастополь</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <div class="form-label">
+                                    Тип занятости:
+                                </div>
+                                <div class="form-input">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Полная занятость
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Частичная занятость
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Проектная/Временная работа
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Волонтерство
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Стажировка
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <div class="form-label">
+                                    График работы:
+                                </div>
+                                <div class="form-input">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Полный день
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Сменный график
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Гибкий график
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">
+                                            Удалённая работа
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-submit">
+                                <p>
+                                    <button type="submit" class="btn btn-primary btn-lg">Сохранить настройки</button>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+
+        <script type="text/x-jquery-tpl" id="vacancies.html">
+            <div class="content-wrap">
+                <h1>Список вакансий</h1>
+            </div>
+        </script>
+
+        <script type="text/x-jquery-tpl" id="about.html">
+            <div class="content-wrap">
+                <h1>О приложении</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut odio vitae eros luctus suscipit non eu lacus. Donec dapibus, dolor ac imperdiet ullamcorper, lorem elit ultrices est, sed viverra risus nunc et massa. Suspendisse turpis dolor, consectetur sed nibh nec, vehicula ultricies magna. Vivamus posuere eros et mauris varius cursus. Vivamus mattis accumsan mattis. Donec placerat massa at sem suscipit facilisis. Curabitur consectetur nibh ut viverra fringilla. In hendrerit risus vel elit blandit, quis posuere nunc facilisis. Cras et fringilla elit, egestas feugiat diam.
+                </p>
+                <p>
+                    Duis luctus sapien ac lacus hendrerit pellentesque. Vivamus sed facilisis velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In vitae leo feugiat, commodo dui vitae, dignissim enim. Proin mauris sapien, rutrum convallis mauris a, bibendum fermentum est. Nunc elementum nisl semper ligula volutpat dignissim. Ut vitae libero sit amet ante lobortis porttitor. Praesent malesuada tellus felis, ac condimentum dolor iaculis sit amet.
+                </p>
+                <p>
+                    Suspendisse suscipit vestibulum lectus ut consequat. Vivamus sodales purus sit amet lectus varius ultricies. Ut fermentum magna eget ante rutrum placerat. Maecenas adipiscing pharetra lectus et mollis. Integer malesuada malesuada elementum. Donec luctus velit sapien, ultrices ultrices libero pharetra eu. Nunc nec ante id erat dignissim tincidunt. Sed non augue eget dolor dapibus gravida sit amet ac eros. Sed in faucibus magna, a semper lacus. Donec enim velit, suscipit ut ultricies adipiscing, consectetur sed turpis. Vivamus mattis non est et rhoncus. Aliquam quam dolor, placerat in aliquet sed, lobortis in enim. Quisque velit justo, eleifend vel lobortis vel, sollicitudin id erat. Quisque aliquam ullamcorper libero.
+                </p>
+            </div>
+        </script>
+
 </body>
 </html>

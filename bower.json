@@ -2,7 +2,7 @@
   "name": "vacancies",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "~1.9.0",
+    "jquery": "~2.1.0",
     "underscore": "~1.6.0",
     "backbone": "~1.1.2",
     "requirejs": "~2.1.5",

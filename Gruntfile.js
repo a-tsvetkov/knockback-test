@@ -5,7 +5,7 @@ var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
-
+var modRewrite = require('connect-modrewrite');
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -74,6 +74,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
+                            modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
@@ -167,7 +168,7 @@ module.exports = function (grunt) {
                     optimize: 'none',
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
-                        'jquery': '../../app/lib/jquery/jquery',
+                        'jquery': '../../app/lib/jquery/dist/jquery',
                         'underscore': '../../app/lib/underscore/underscore',
                         'backbone': '../../app/lib/backbone/backbone',
                         'knockout': '../../app/lib/knockout/build/output/knockout-latest.debug',

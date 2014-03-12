@@ -2,14 +2,25 @@ define [
   'jquery'
   'backbone'
   'knockout'
-  'knockback'
   'routes/router'
-], ($, Backbone, ko, kb, Router) ->
+], ($, Backbone, ko, Router) ->
     class Application
+
         constructor: (@element) ->
+            @router = new Router @
+            @currentRoute = ko.observable()
+            @router.on 'route', (route, params) => @currentRoute(route)
+
+            @currentPath = ko.computed () => @router.getPathForRoute(@currentRoute())
+
+            @menuItems = [
+                { href: '/filter', name: 'Настройки' }
+                { href: '/vacancies', name: 'Вакансии'}
+                { href: '/about', name: 'О приложении'}
+            ]
+
 
         start: () ->
-            @router = new Router @
             @interceptLinks()
             Backbone.history.start({pushState: true})
 
@@ -21,6 +32,6 @@ define [
                 @router.navigate(path, { trigger: true })
 
         renderView: (viewElement) ->
-            ko.releaseNode(@element)
-            return if @element contains viewElement
-            element.append(viewElement)
+            return if $.contains(@element, viewElement)
+            @element.empty()
+            @element.append(viewElement)
